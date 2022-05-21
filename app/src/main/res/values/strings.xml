@@ -2,7 +2,7 @@
 	<string name="app_name" translatable="false">Vitaland</string>
 	<string name="title_login">Login</string>
 	<string name="title_home">Home</string>
-	<string name="title_dashboard">Dashboard</string>
+	<string name="title_profile">Dashboard</string>
 	<string name="title_notifications">Notifications</string>
 	<string name="log_in_as_parent">Log in as parent</string>
 	<string name="log_in_as_child">Log in as child</string>

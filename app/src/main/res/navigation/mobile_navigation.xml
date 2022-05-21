@@ -7,7 +7,7 @@
 
 	<action
 		android:id="@+id/action_global_profile"
-		app:destination="@id/navigation_dashboard" />
+		app:destination="@id/navigation_profile" />
 
 	<fragment
 		android:id="@+id/navigation_login"
@@ -22,10 +22,10 @@
 		tools:layout="@layout/fragment_home" />
 
 	<fragment
-		android:id="@+id/navigation_dashboard"
-		android:name="gg.solrudev.vitaland.ui.dashboard.DashboardFragment"
-		android:label="@string/title_dashboard"
-		tools:layout="@layout/fragment_dashboard">
+		android:id="@+id/navigation_profile"
+		android:name="gg.solrudev.vitaland.ui.dashboard.ProfileFragment"
+		android:label="@string/title_profile"
+		tools:layout="@layout/fragment_profile">
 		<argument
 			android:name="user"
 			app:argType="gg.solrudev.vitaland.domain.model.User" />
