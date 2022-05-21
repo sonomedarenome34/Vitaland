@@ -66,9 +66,10 @@ dependencies {
 	implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
 	implementation("com.squareup.retrofit2:converter-moshi:$retrofitVersion")
 
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1")
 	implementation("androidx.appcompat:appcompat:1.4.1")
 	implementation("com.google.android.material:material:1.6.0")
-	implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
+	implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
 	implementation("androidx.navigation:navigation-fragment-ktx:$navigationVersion")
 	implementation("androidx.navigation:navigation-ui-ktx:$navigationVersion")
 	implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.6")

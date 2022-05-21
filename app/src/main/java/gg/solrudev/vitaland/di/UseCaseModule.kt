@@ -11,7 +11,7 @@ import gg.solrudev.vitaland.domain.usecase.*
 interface UseCaseModule {
 
 	@Binds
-	fun bindGetParentUserUseCase(getCounselorUserUseCase: GetCounselorUserUseCaseImpl): GetCounselorUserUseCase
+	fun bindGetParentUserUseCase(getParentUserUseCase: GetParentUserUseCaseImpl): GetParentUserUseCase
 
 	@Binds
 	fun bindGetChildUserUseCase(getChildUserUseCase: GetChildUserUseCaseImpl): GetChildUserUseCase

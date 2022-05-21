@@ -3,7 +3,17 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:id="@+id/mobile_navigation"
-	app:startDestination="@+id/navigation_home">
+	app:startDestination="@+id/navigation_login">
+
+	<action
+		android:id="@+id/action_global_profile"
+		app:destination="@id/navigation_dashboard" />
+
+	<fragment
+		android:id="@+id/navigation_login"
+		android:name="gg.solrudev.vitaland.ui.login.LoginFragment"
+		android:label="@string/title_login"
+		tools:layout="@layout/fragment_login" />
 
 	<fragment
 		android:id="@+id/navigation_home"
@@ -15,7 +25,11 @@
 		android:id="@+id/navigation_dashboard"
 		android:name="gg.solrudev.vitaland.ui.dashboard.DashboardFragment"
 		android:label="@string/title_dashboard"
-		tools:layout="@layout/fragment_dashboard" />
+		tools:layout="@layout/fragment_dashboard">
+		<argument
+			android:name="user"
+			app:argType="gg.solrudev.vitaland.domain.model.User" />
+	</fragment>
 
 	<fragment
 		android:id="@+id/navigation_notifications"

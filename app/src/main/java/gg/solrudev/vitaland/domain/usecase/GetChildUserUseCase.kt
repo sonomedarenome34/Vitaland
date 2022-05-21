@@ -5,7 +5,7 @@ import gg.solrudev.vitaland.domain.repository.UserRepository
 import javax.inject.Inject
 
 interface GetChildUserUseCase {
-	suspend fun invoke(): User
+	suspend operator fun invoke(): User
 }
 
 class GetChildUserUseCaseImpl @Inject constructor(

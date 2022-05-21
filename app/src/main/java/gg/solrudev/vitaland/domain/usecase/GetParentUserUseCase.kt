@@ -5,11 +5,11 @@ import gg.solrudev.vitaland.domain.repository.UserRepository
 import javax.inject.Inject
 
 interface GetParentUserUseCase {
-	suspend fun invoke(): User
+	suspend operator fun invoke(): User
 }
 
 class GetParentUserUseCaseImpl @Inject constructor(
 	private val userRepository: UserRepository
-) : GetChildUserUseCase {
+) : GetParentUserUseCase {
 	override suspend fun invoke() = userRepository.getUserById(1)!!
 }
