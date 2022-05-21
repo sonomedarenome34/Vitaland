@@ -13,7 +13,7 @@ import androidx.room.*
 			childColumns = arrayOf("parent_id")
 		),
 		ForeignKey(
-			entity = ShiftModel::class,
+			entity = UserModel::class,
 			parentColumns = arrayOf("id"),
 			childColumns = arrayOf("child_id")
 		)
