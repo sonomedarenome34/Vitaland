@@ -3,7 +3,7 @@ package gg.solrudev.vitaland.data.database.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import gg.solrudev.vitaland.domain.UserRole
+import gg.solrudev.vitaland.domain.model.UserRole
 
 @Entity(tableName = "users")
 data class UserModel(
