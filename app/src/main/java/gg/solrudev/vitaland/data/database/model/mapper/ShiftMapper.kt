@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 interface ShiftMapper : Mapper<ShiftModel, Shift>
 
-class ShiftMapperImpl @Inject constructor() : Mapper<ShiftModel, Shift> {
+class ShiftMapperImpl @Inject constructor() : ShiftMapper {
 
 	override fun invoke(shiftModel: ShiftModel): Shift {
 		return Shift(shiftModel.id, shiftModel.name, shiftModel.startDate, shiftModel.endDate)

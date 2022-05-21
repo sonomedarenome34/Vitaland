@@ -10,12 +10,3 @@ data class ParentChildrenCrossRef(
 	@ColumnInfo(name = "parent_id") val parentId: Int,
 	@ColumnInfo(name = "child_id") val childId: Int
 )
-
-data class ParentWithChildren(
-	@Embedded val parent: UserModel,
-	@Relation(
-		parentColumn = "parent_id",
-		entityColumn = "child_id"
-	)
-	val children: List<UserModel>?
-)

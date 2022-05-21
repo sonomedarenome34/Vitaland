@@ -19,18 +19,25 @@ class UserRepositoryImpl @Inject constructor(
 ) : UserRepository {
 
 	override suspend fun getShiftsForUser(user: User): List<Shift> {
-		val userWithShifts = userDao.getShiftsById(user.id) ?: return emptyList()
-		val shifts = userWithShifts.shifts ?: return emptyList()
-		return shifts.map { shiftMapper(it) }
+		val shiftIds = userDao.getShiftsById(user.id) ?: return emptyList()
+		return coroutineScope {
+			shiftIds.map {
+				async {
+					val shift = shiftDao.getById(it) ?: return@async null
+					shiftMapper(shift)
+				}
+			}
+				.awaitAll()
+				.filterNotNull()
+		}
 	}
 
 	override suspend fun getRatingsForUser(user: User): List<ShiftRating> {
-		val userWithRatings = userDao.getRatingsById(user.id) ?: return emptyList()
-		val ratings = userWithRatings.ratings ?: return emptyList()
+		val ratings = userDao.getRatingsById(user.id) ?: return emptyList()
 		return coroutineScope {
 			ratings.map {
 				async {
-					val shift = shiftDao.getById(it.shiftId) ?: return@async null
+					val shift = shiftDao.getById(it.userId) ?: return@async null
 					ShiftRating(user, shiftMapper(shift), it.rating, it.text)
 				}
 			}
@@ -43,9 +50,17 @@ class UserRepositoryImpl @Inject constructor(
 		if (user.role != UserRole.PARENT) {
 			return emptyList()
 		}
-		val parentWithChildren = userDao.getChildrenById(user.id) ?: return emptyList()
-		val children = parentWithChildren.children ?: return emptyList()
-		return children.map { userMapper(it) }
+		val childrenIds = userDao.getChildrenById(user.id) ?: return emptyList()
+		return coroutineScope {
+			childrenIds.map {
+				async {
+					val child = userDao.getById(it) ?: return@async null
+					userMapper(child)
+				}
+			}
+				.awaitAll()
+				.filterNotNull()
+		}
 	}
 
 	override suspend fun updateUserName(user: User, name: PersonName) {

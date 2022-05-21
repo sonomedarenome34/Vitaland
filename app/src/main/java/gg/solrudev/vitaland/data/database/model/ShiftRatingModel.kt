@@ -9,23 +9,3 @@ data class ShiftRatingModel(
 	val rating: Double,
 	val text: String
 )
-
-data class UserWithRatings(
-	@Embedded val user: UserModel,
-	@Relation(
-		parentColumn = "user_id",
-		entityColumn = "shift_id",
-		associateBy = Junction(ShiftRatingModel::class)
-	)
-	val ratings: List<ShiftRatingModel>?
-)
-
-data class ShiftWithRatings(
-	@Embedded val shift: ShiftModel,
-	@Relation(
-		parentColumn = "shift_id",
-		entityColumn = "user_id",
-		associateBy = Junction(ShiftRatingModel::class)
-	)
-	val ratings: List<ShiftRatingModel>?
-)

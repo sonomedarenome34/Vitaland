@@ -19,14 +19,21 @@ class ShiftRepositoryImpl @Inject constructor(
 ) : ShiftRepository {
 
 	override suspend fun getUsersForShift(shift: Shift): List<User> {
-		val shiftWithUsers = shiftDao.getUsersById(shift.id) ?: return emptyList()
-		val users = shiftWithUsers.users ?: return emptyList()
-		return users.map { userMapper(it) }
+		val userIds = shiftDao.getUsersById(shift.id) ?: return emptyList()
+		return coroutineScope {
+			userIds.map {
+				async {
+					val user = userDao.getById(it) ?: return@async null
+					userMapper(user)
+				}
+			}
+				.awaitAll()
+				.filterNotNull()
+		}
 	}
 
 	override suspend fun getRatingsForShift(shift: Shift): List<ShiftRating> {
-		val userWithRatings = shiftDao.getRatingsById(shift.id) ?: return emptyList()
-		val ratings = userWithRatings.ratings ?: return emptyList()
+		val ratings = shiftDao.getRatingsById(shift.id) ?: return emptyList()
 		return coroutineScope {
 			ratings.map {
 				async {
