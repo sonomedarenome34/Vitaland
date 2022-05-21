@@ -17,15 +17,15 @@ data class UserWithRatings(
 		entityColumn = "shift_id",
 		associateBy = Junction(ShiftRatingModel::class)
 	)
-	val ratings: List<ShiftRatingModel>
+	val ratings: List<ShiftRatingModel>?
 )
 
-data class RatingWithUsers(
-	@Embedded val rating: ShiftRatingModel,
+data class ShiftWithRatings(
+	@Embedded val shift: ShiftModel,
 	@Relation(
 		parentColumn = "shift_id",
 		entityColumn = "user_id",
 		associateBy = Junction(ShiftRatingModel::class)
 	)
-	val users: List<UserModel>
+	val ratings: List<ShiftRatingModel>?
 )

@@ -15,7 +15,7 @@ data class UserWithShifts(
 		entityColumn = "shift_id",
 		associateBy = Junction(UserShiftCrossRef::class)
 	)
-	val shifts: List<ShiftModel>
+	val shifts: List<ShiftModel>?
 )
 
 data class ShiftWithUsers(
@@ -25,5 +25,5 @@ data class ShiftWithUsers(
 		entityColumn = "user_id",
 		associateBy = Junction(UserShiftCrossRef::class)
 	)
-	val users: List<UserModel>
+	val users: List<UserModel>?
 )

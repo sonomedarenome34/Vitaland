@@ -2,8 +2,8 @@ package gg.solrudev.vitaland.domain.model
 
 data class User(
 	val id: Int,
-	val firstName: String,
-	val lastName: String,
-	val patronymic: String,
+	val name: PersonName,
+	val email: String,
+	val phone: String,
 	val role: UserRole
 )

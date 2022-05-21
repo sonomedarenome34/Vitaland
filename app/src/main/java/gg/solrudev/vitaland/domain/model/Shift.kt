@@ -6,6 +6,5 @@ data class Shift(
 	val id: Int,
 	val name: String,
 	val startDate: Date,
-	val endDate: Date,
-	val counselor: User
+	val endDate: Date
 )

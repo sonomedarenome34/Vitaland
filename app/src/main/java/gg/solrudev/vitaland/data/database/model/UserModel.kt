@@ -11,5 +11,7 @@ data class UserModel(
 	@ColumnInfo(name = "first_name") val firstName: String,
 	@ColumnInfo(name = "last_name") val lastName: String = "",
 	val patronymic: String = "",
+	val email: String,
+	val phone: String,
 	val role: UserRole
 )

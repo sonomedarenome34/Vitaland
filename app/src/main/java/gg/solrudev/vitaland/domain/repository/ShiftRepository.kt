@@ -7,4 +7,7 @@ import gg.solrudev.vitaland.domain.model.User
 interface ShiftRepository {
 	suspend fun getUsersForShift(shift: Shift): List<User>
 	suspend fun getRatingsForShift(shift: Shift): List<ShiftRating>
+	suspend fun updateShiftName(shift: Shift, name: String)
+	suspend fun bindUserToShift(user: User, shift: Shift)
+	suspend fun unbindUserFromShift(user: User, shift: Shift)
 }

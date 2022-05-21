@@ -10,5 +10,5 @@ data class ShiftModel(
 	@PrimaryKey(autoGenerate = true) val id: Int = 0,
 	@ColumnInfo(name = "start_date") val startDate: Date,
 	@ColumnInfo(name = "end_date") val endDate: Date,
-	val name: String,
+	val name: String
 )
