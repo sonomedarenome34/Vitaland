@@ -12,4 +12,5 @@ interface UserRepository {
 	suspend fun updateUserName(user: User, name: PersonName)
 	suspend fun updateUserEmail(user: User, email: String)
 	suspend fun updateUserPhone(user: User, phone: String)
+	suspend fun getUserById(userId: Int): User?
 }

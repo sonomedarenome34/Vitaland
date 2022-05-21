@@ -49,4 +49,5 @@ class UserRepositoryImpl @Inject constructor(
 
 	override suspend fun updateUserEmail(user: User, email: String) = userDao.updateEmailById(user.id, email)
 	override suspend fun updateUserPhone(user: User, phone: String) = userDao.updatePhoneById(user.id, phone)
+	override suspend fun getUserById(userId: Int) = userDao.getById(userId)?.let { userMapper(it) }
 }

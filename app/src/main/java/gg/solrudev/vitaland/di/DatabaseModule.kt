@@ -20,7 +20,9 @@ object DatabaseModule {
 		context,
 		VitalandDatabase::class.java,
 		"vitaland.db"
-	).build()
+	)
+		.createFromAsset("vitaland.db")
+		.build()
 
 	@Provides
 	@Singleton

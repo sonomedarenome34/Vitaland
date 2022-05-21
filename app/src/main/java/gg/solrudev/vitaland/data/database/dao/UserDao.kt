@@ -12,6 +12,9 @@ import gg.solrudev.vitaland.data.database.model.UserWithShifts
 @Dao
 interface UserDao : GenericDao<UserModel> {
 
+	@Query("SELECT * FROM users WHERE id = :userId")
+	suspend fun getById(userId: Int): UserModel?
+
 	@Transaction
 	@RewriteQueriesToDropUnusedColumns
 	@Query("SELECT * FROM shifts, users, users_shifts WHERE user_id = :userId")
