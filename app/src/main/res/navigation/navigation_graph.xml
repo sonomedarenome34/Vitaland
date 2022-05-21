@@ -23,7 +23,7 @@
 
 	<fragment
 		android:id="@+id/navigation_profile"
-		android:name="gg.solrudev.vitaland.ui.dashboard.ProfileFragment"
+		android:name="gg.solrudev.vitaland.ui.profile.ProfileFragment"
 		android:label="@string/title_profile"
 		tools:layout="@layout/fragment_profile">
 		<argument
