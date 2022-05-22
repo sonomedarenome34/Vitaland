@@ -39,7 +39,9 @@ class EditProfileFragment : BottomSheetDialogFragment() {
 			viewModel.persistUpdatedUser()
 		}
 		addEditTextListeners()
-		viewModel.loadUser(args.user)
+		if (savedInstanceState == null) {
+			viewModel.loadUser(args.user)
+		}
 	}
 
 	override fun onDestroyView() {
