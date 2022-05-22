@@ -16,15 +16,14 @@ interface GetChildrenWithShiftsUseCase {
 class GetChildrenWithShiftsUseCaseImpl @Inject constructor(
 	private val userRepository: UserRepository
 ) : GetChildrenWithShiftsUseCase {
-	override suspend fun invoke(parent: User): List<ChildWithShift> {
-		return coroutineScope {
-			userRepository
-				.getChildrenForUser(parent)
-				.map {
-					async { it to (userRepository.getShiftsForUser(it).firstOrNull() ?: Shift.empty) }
-				}
-				.awaitAll()
-				.map { (child, shift) -> ChildWithShift(child, shift) }
-		}
+
+	override suspend fun invoke(parent: User) = coroutineScope {
+		userRepository
+			.getChildrenForUser(parent)
+			.map {
+				async { it to (userRepository.getShiftsForUser(it).firstOrNull() ?: Shift.empty) }
+			}
+			.awaitAll()
+			.map { (child, shift) -> ChildWithShift(child, shift) }
 	}
 }
