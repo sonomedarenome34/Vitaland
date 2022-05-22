@@ -46,7 +46,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 			viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
 				viewModel.collect {
 					if (it.user != null) {
-						val toProfileScreen = MobileNavigationDirections.actionGlobalProfile(it.user)
+						val toProfileScreen = MobileNavigationDirections.actionGlobalProfile(it.user, self = true)
 						findNavController().navigate(toProfileScreen)
 						viewModel.navigatedToProfile()
 					}

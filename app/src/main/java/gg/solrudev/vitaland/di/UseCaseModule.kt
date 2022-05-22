@@ -24,4 +24,7 @@ interface UseCaseModule {
 
 	@Binds
 	fun bindGetUserFlowUseCase(getUserFlowUseCaseImpl: GetUserFlowUseCaseImpl): GetUserFlowUseCase
+
+	@Binds
+	fun bindGetChildrenWithShiftsUseCase(getChildrenWithShiftsUseCaseImpl: GetChildrenWithShiftsUseCaseImpl): GetChildrenWithShiftsUseCase
 }

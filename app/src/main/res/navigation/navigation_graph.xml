@@ -29,6 +29,10 @@
 		<argument
 			android:name="user"
 			app:argType="gg.solrudev.vitaland.domain.model.User" />
+		<argument
+			android:name="self"
+			app:argType="boolean"
+			android:defaultValue="false" />
 	</fragment>
 
 	<fragment

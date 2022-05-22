@@ -9,4 +9,6 @@
 	<string name="log_in_as_counselor">Войти как вожатый</string>
 	<string name="log_in_as_employee">Войти как сотрудник лагеря</string>
 	<string name="profile_button_edit">Редактировать</string>
+	<string name="profile_section_title_children">Дети</string>
+	<string name="profile_item_button_view">Перейти</string>
 </resources>
