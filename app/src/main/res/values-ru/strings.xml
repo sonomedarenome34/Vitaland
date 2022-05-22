@@ -8,4 +8,5 @@
 	<string name="log_in_as_child">Войти как ребёнок</string>
 	<string name="log_in_as_counselor">Войти как вожатый</string>
 	<string name="log_in_as_employee">Войти как сотрудник лагеря</string>
+	<string name="profile_button_edit">Редактировать</string>
 </resources>

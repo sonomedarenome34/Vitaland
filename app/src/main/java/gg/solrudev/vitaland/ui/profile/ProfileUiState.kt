@@ -1,7 +1,7 @@
 package gg.solrudev.vitaland.ui.profile
 
-import gg.solrudev.vitaland.domain.model.PersonName
+import gg.solrudev.vitaland.domain.model.User
 
 data class ProfileUiState(
-	val personName: PersonName = PersonName()
+	val user: User? = null
 )

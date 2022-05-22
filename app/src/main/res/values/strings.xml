@@ -8,4 +8,6 @@
 	<string name="log_in_as_child">Log in as child</string>
 	<string name="log_in_as_counselor">Log in as counselor</string>
 	<string name="log_in_as_employee">Log in as employee</string>
+	<string name="profile_displayed_name" translatable="false">%1$s %2$s</string>
+	<string name="profile_button_edit">Edit</string>
 </resources>

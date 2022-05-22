@@ -8,6 +8,10 @@ import gg.solrudev.vitaland.domain.model.ShiftRating
 import gg.solrudev.vitaland.domain.model.User
 import gg.solrudev.vitaland.domain.model.UserRole
 import gg.solrudev.vitaland.domain.repository.UserRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
@@ -50,4 +54,9 @@ class UserRepositoryImpl @Inject constructor(
 	override suspend fun updateUserEmail(user: User, email: String) = userDao.updateEmailById(user.id, email)
 	override suspend fun updateUserPhone(user: User, phone: String) = userDao.updatePhoneById(user.id, phone)
 	override suspend fun getUserById(userId: Int) = userDao.getById(userId)?.let { userMapper(it) }
+
+	override fun getUserFlowById(userId: Int) = userDao
+		.getFlowById(userId)
+		.filterNotNull()
+		.map(userMapper)
 }

@@ -8,12 +8,16 @@ import gg.solrudev.vitaland.data.database.model.ParentWithChildren
 import gg.solrudev.vitaland.data.database.model.ShiftWithRatings
 import gg.solrudev.vitaland.data.database.model.UserModel
 import gg.solrudev.vitaland.data.database.model.UserWithShifts
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UserDao : GenericDao<UserModel> {
 
 	@Query("SELECT * FROM users WHERE id = :userId")
 	suspend fun getById(userId: Int): UserModel?
+
+	@Query("SELECT * FROM users WHERE id = :userId")
+	fun getFlowById(userId: Int): Flow<UserModel?>
 
 	@Transaction
 	@RewriteQueriesToDropUnusedColumns

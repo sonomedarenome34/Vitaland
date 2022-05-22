@@ -21,4 +21,7 @@ interface UseCaseModule {
 
 	@Binds
 	fun bindGetCounselorUserUseCase(getCounselorUserUseCase: GetCounselorUserUseCaseImpl): GetCounselorUserUseCase
+
+	@Binds
+	fun bindGetUserFlowUseCase(getUserFlowUseCaseImpl: GetUserFlowUseCaseImpl): GetUserFlowUseCase
 }
