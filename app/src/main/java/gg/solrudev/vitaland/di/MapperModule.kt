@@ -4,10 +4,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import gg.solrudev.vitaland.data.database.model.mapper.ShiftMapper
-import gg.solrudev.vitaland.data.database.model.mapper.ShiftMapperImpl
-import gg.solrudev.vitaland.data.database.model.mapper.UserMapper
-import gg.solrudev.vitaland.data.database.model.mapper.UserMapperImpl
+import gg.solrudev.vitaland.data.database.model.mapper.*
 
 @InstallIn(SingletonComponent::class)
 @Module
@@ -18,4 +15,7 @@ interface MapperModule {
 
 	@Binds
 	fun bindUserMapper(userMapperImpl: UserMapperImpl): UserMapper
+
+	@Binds
+	fun bindEventMapper(eventMapperImpl: EventMapperImpl): EventMapper
 }

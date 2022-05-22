@@ -22,7 +22,7 @@ import androidx.room.*
 data class ShiftRatingModel(
 	@ColumnInfo(name = "user_id") val userId: Int,
 	@ColumnInfo(name = "shift_id") val shiftId: Int,
-	val rating: Int,
+	val rating: Double,
 	val text: String
 )
 

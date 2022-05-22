@@ -5,6 +5,7 @@ import androidx.room.Query
 import androidx.room.RewriteQueriesToDropUnusedColumns
 import androidx.room.Transaction
 import gg.solrudev.vitaland.data.database.model.ShiftModel
+import gg.solrudev.vitaland.data.database.model.ShiftWithEvents
 import gg.solrudev.vitaland.data.database.model.ShiftWithUsers
 import gg.solrudev.vitaland.data.database.model.UserWithRatings
 
@@ -20,6 +21,10 @@ interface ShiftDao : GenericDao<ShiftModel> {
 	@RewriteQueriesToDropUnusedColumns
 	@Query("SELECT * FROM users, shifts_ratings WHERE shift_id = :shiftId")
 	suspend fun getRatingsById(shiftId: Int): List<UserWithRatings>?
+
+	@Transaction
+	@Query("SELECT * FROM shifts WHERE id = :shiftId")
+	suspend fun getEventsById(shiftId: Int): List<ShiftWithEvents>?
 
 	@Query("UPDATE shifts SET name = :name WHERE id = :shiftId")
 	suspend fun updateNameById(shiftId: Int, name: String)

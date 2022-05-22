@@ -1,5 +1,6 @@
 package gg.solrudev.vitaland.data.database
 
+import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
@@ -14,9 +15,11 @@ import gg.solrudev.vitaland.data.database.model.*
 		ShiftModel::class,
 		ShiftRatingModel::class,
 		ParentChildrenCrossRef::class,
-		UserShiftCrossRef::class
+		UserShiftCrossRef::class,
+		EventModel::class
 	],
-	version = 1
+	autoMigrations = [AutoMigration(from = 1, to = 2)],
+	version = 2
 )
 @TypeConverters(DateConverter::class)
 abstract class VitalandDatabase : RoomDatabase() {
