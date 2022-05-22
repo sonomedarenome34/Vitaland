@@ -20,10 +20,14 @@ class GetChildrenWithShiftsUseCaseImpl @Inject constructor(
 	override suspend fun invoke(parent: User) = coroutineScope {
 		userRepository
 			.getChildrenForUser(parent)
-			.map {
-				async { it to (userRepository.getShiftsForUser(it).firstOrNull() ?: Shift.empty) }
+			.map { child ->
+				async {
+					val shift = userRepository
+						.getShiftsForUser(child)
+						.firstOrNull() ?: Shift.empty
+					ChildWithShift(child, shift)
+				}
 			}
 			.awaitAll()
-			.map { (child, shift) -> ChildWithShift(child, shift) }
 	}
 }
