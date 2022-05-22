@@ -11,4 +11,11 @@
 	<string name="profile_button_edit">Редактировать</string>
 	<string name="profile_section_title_children">Дети</string>
 	<string name="profile_item_button_view">Перейти</string>
+	<string name="edit_profile_title">Редактирование профиля</string>
+	<string name="edit_profile_first_name_label">Имя</string>
+	<string name="edit_profile_last_name_label">Фамилия</string>
+	<string name="edit_profile_patronymic_label">Отчество</string>
+	<string name="edit_profile_email_label">Электронная почта</string>
+	<string name="edit_profile_phone_label">Телефон</string>
+	<string name="edit_profile_button_apply">Применить</string>
 </resources>

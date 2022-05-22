@@ -12,4 +12,11 @@
 	<string name="profile_button_edit">Edit</string>
 	<string name="profile_section_title_children">Children</string>
 	<string name="profile_item_button_view">View</string>
+	<string name="edit_profile_title">Edit profile</string>
+	<string name="edit_profile_first_name_label">First name</string>
+	<string name="edit_profile_last_name_label">Last name</string>
+	<string name="edit_profile_patronymic_label">Patronymic</string>
+	<string name="edit_profile_email_label">E-mail</string>
+	<string name="edit_profile_phone_label">Phone number</string>
+	<string name="edit_profile_button_apply">Apply</string>
 </resources>

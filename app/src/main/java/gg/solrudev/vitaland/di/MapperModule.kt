@@ -18,4 +18,7 @@ interface MapperModule {
 
 	@Binds
 	fun bindEventMapper(eventMapperImpl: EventMapperImpl): EventMapper
+
+	@Binds
+	fun bindUserModelMapper(userModelMapperImpl: UserModelMapperImpl): UserModelMapper
 }

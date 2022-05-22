@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,6 +28,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		binding.buttonProfileEdit.isVisible = args.self
+		binding.buttonProfileEdit.setOnClickListener {
+			val openEditProfile = ProfileFragmentDirections.actionProfileFragmentToEditProfileFragment(args.user)
+			findNavController().navigate(openEditProfile)
+		}
 		binding.recyclerViewProfileChildren.adapter = childrenListAdapter
 		binding.recyclerViewProfileChildren.addItemDecoration(
 			DividerItemDecoration(

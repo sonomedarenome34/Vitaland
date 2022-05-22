@@ -27,4 +27,7 @@ interface UseCaseModule {
 
 	@Binds
 	fun bindGetChildrenWithShiftsUseCase(getChildrenWithShiftsUseCaseImpl: GetChildrenWithShiftsUseCaseImpl): GetChildrenWithShiftsUseCase
+
+	@Binds
+	fun bindUpdateUserUseCase(updateUserUseCaseImpl: UpdateUserUseCaseImpl): UpdateUserUseCase
 }

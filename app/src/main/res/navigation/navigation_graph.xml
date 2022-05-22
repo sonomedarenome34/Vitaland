@@ -33,6 +33,9 @@
 			android:name="self"
 			app:argType="boolean"
 			android:defaultValue="false" />
+		<action
+			android:id="@+id/action_profileFragment_to_editProfileFragment"
+			app:destination="@+id/navigation_edit_profile" />
 	</fragment>
 
 	<fragment
@@ -40,4 +43,15 @@
 		android:name="gg.solrudev.vitaland.ui.notifications.NotificationsFragment"
 		android:label="@string/title_notifications"
 		tools:layout="@layout/fragment_notifications" />
+
+	<dialog
+		android:id="@+id/navigation_edit_profile"
+		android:name="gg.solrudev.vitaland.ui.profile.edit.EditProfileFragment"
+		android:label="@string/edit_profile_title"
+		tools:layout="@layout/bottom_sheet_edit_profile">
+		<argument
+			android:name="user"
+			app:argType="gg.solrudev.vitaland.domain.model.User" />
+	</dialog>
+
 </navigation>
